@@ -45,19 +45,19 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
-import com.example.alarm.base.CraneDrawer
-import com.example.alarm.base.CraneTabBar
-import com.example.alarm.base.CraneTabs
-import com.example.alarm.base.ExploreSection
 import com.example.alarm.data.ExploreModel
-//import com.example.dementiaalarm.ui.theme.BottomSheetShape
+import com.example.alarm.ui.theme.BottomSheetShape
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-//import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.stringResource
+import com.example.alarm.R
 import androidx.compose.ui.unit.dp
+import com.example.alarm.base.*
+import com.example.alarm.data.EditAlarmModel
 import kotlinx.coroutines.launch
 
 typealias OnExploreItemClicked = (ExploreModel) -> Unit
+typealias OnEditAlarmExploreItemClicked = (EditAlarmModel) -> Unit
 
 enum class CraneScreen {
     Fly, Sleep, Eat
@@ -66,7 +66,8 @@ enum class CraneScreen {
 @Composable
 fun CraneHome(
     widthSize: WindowWidthSizeClass,
-    onExploreItemClicked: OnExploreItemClicked,
+//    onExploreItemClicked: OnExploreItemClicked,
+    OnEditAlarmExploreItemClicked: OnEditAlarmExploreItemClicked,
     onDateSelectionClicked: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: MainViewModel
@@ -83,7 +84,8 @@ fun CraneHome(
         CraneHomeContent(
             modifier = modifier.padding(contentPadding),
             widthSize = widthSize,
-            onExploreItemClicked = onExploreItemClicked,
+//            onExploreItemClicked = onExploreItemClicked,
+            OnEditAlarmExploreItemClicked = OnEditAlarmExploreItemClicked,
             onDateSelectionClicked = onDateSelectionClicked,
             openDrawer = {
                 scope.launch {
@@ -99,7 +101,8 @@ fun CraneHome(
 @Composable
 fun CraneHomeContent(
     widthSize: WindowWidthSizeClass,
-    onExploreItemClicked: OnExploreItemClicked,
+//    onExploreItemClicked: OnExploreItemClicked,
+    OnEditAlarmExploreItemClicked: OnEditAlarmExploreItemClicked,
     onDateSelectionClicked: () -> Unit,
     openDrawer: () -> Unit,
     modifier: Modifier = Modifier,
@@ -113,7 +116,7 @@ fun CraneHomeContent(
     BackdropScaffold(
         modifier = modifier,
         scaffoldState = rememberBackdropScaffoldState(BackdropValue.Revealed),
-//        frontLayerShape = BottomSheetShape,
+        frontLayerShape = BottomSheetShape,
         frontLayerScrimColor = Color.Unspecified,
         appBar = {
             HomeTabBar(openDrawer, tabSelected, onTabSelected = { tabSelected = it })
@@ -125,7 +128,8 @@ fun CraneHomeContent(
                 viewModel,
                 onPeopleChanged,
                 onDateSelectionClicked,
-                onExploreItemClicked
+//                onExploreItemClicked
+                OnEditAlarmExploreItemClicked
             )
         },
         frontLayerContent = {
@@ -152,34 +156,25 @@ fun CraneHomeContent(
             ) { targetState ->
 //                when (targetState) {
 //                    CraneScreen.Fly -> {
-                        suggestedDestinations?.let { destinations ->
-                            ExploreSection(
-                                widthSize = widthSize,
-                                title = "test",
+//                        suggestedDestinations?.let { destinations ->
+//                            ExploreSection(
+//                                widthSize = widthSize,
+//                                title = "test",
 //                                title = stringResource(R.string.explore_set_alarm),
-                                exploreList = destinations,
-                                onItemClicked = onExploreItemClicked
-                            )
-                        }
-                    }
-//                    CraneScreen.Sleep -> {
-//                        ExploreSection(
-//                            widthSize = widthSize,
-//                            title = stringResource(R.string.explore_properties_by_destination),
-//                            exploreList = viewModel.hotels,
-//                            onItemClicked = onExploreItemClicked
-//                        )
+//                                exploreList = destinations,
+//                                onItemClicked = onExploreItemClicked
+//                            )
+//                        }
 //                    }
-//                    CraneScreen.Eat -> {
-//                        ExploreSection(
-//                            widthSize = widthSize,
-//                            title = stringResource(R.string.explore_restaurants_by_destination),
-//                            exploreList = viewModel.restaurants,
-//                            onItemClicked = onExploreItemClicked
-//                        )
-//                    }
+
+                    EditAlarmExploreSection(
+                        widthSize = widthSize,
+//                        exploreList = viewModel.hotels,
+                        title = stringResource(R.string.set_alarm),
+                        onItemClicked = OnEditAlarmExploreItemClicked
+                    )
 //                }
-//            }
+            }
         }
     )
 }
@@ -215,7 +210,8 @@ private fun SearchContent(
     viewModel: MainViewModel,
     onPeopleChanged: (Int) -> Unit,
     onDateSelectionClicked: () -> Unit,
-    onExploreItemClicked: OnExploreItemClicked
+//    onExploreItemClicked: OnExploreItemClicked
+    OnEditAlarmExploreItemClicked: OnEditAlarmExploreItemClicked
 ) {
 //    // Reading datesSelected State from here instead of passing the String from the ViewModel
 //    // to cause a recomposition when the dates change.
@@ -246,7 +242,8 @@ private fun SearchContent(
                     onPeopleChanged = onPeopleChanged,
 //                    onToDestinationChanged = { viewModel.toDestinationChanged(it) },
                     onDateSelectionClicked = onDateSelectionClicked,
-                    onExploreItemClicked = onExploreItemClicked
+//                    onExploreItemClicked = onExploreItemClicked
+                    OnEditAlarmExploreItemClicked = OnEditAlarmExploreItemClicked
                 )
             )
             CraneScreen.Sleep -> SleepSearchContent(
@@ -255,7 +252,8 @@ private fun SearchContent(
                 sleepUpdates = SleepSearchContentUpdates(
                     onPeopleChanged = onPeopleChanged,
                     onDateSelectionClicked = onDateSelectionClicked,
-                    onExploreItemClicked = onExploreItemClicked
+//                    onExploreItemClicked = onExploreItemClicked
+                    OnEditAlarmExploreItemClicked = OnEditAlarmExploreItemClicked
                 )
             )
             CraneScreen.Eat -> EatSearchContent(
@@ -264,7 +262,8 @@ private fun SearchContent(
                 eatUpdates = EatSearchContentUpdates(
                     onPeopleChanged = onPeopleChanged,
                     onDateSelectionClicked = onDateSelectionClicked,
-                    onExploreItemClicked = onExploreItemClicked
+//                    onExploreItemClicked = onExploreItemClicked
+                    OnEditAlarmExploreItemClicked = OnEditAlarmExploreItemClicked
                 )
             )
         }
@@ -275,17 +274,20 @@ data class FlySearchContentUpdates(
     val onPeopleChanged: (Int) -> Unit,
 //    val onToDestinationChanged: (String) -> Unit,
     val onDateSelectionClicked: () -> Unit,
-    val onExploreItemClicked: OnExploreItemClicked
+//    val onExploreItemClicked: OnExploreItemClicked
+    val OnEditAlarmExploreItemClicked: OnEditAlarmExploreItemClicked
 )
 
 data class SleepSearchContentUpdates(
     val onPeopleChanged: (Int) -> Unit,
     val onDateSelectionClicked: () -> Unit,
-    val onExploreItemClicked: OnExploreItemClicked
+//    val onExploreItemClicked: OnExploreItemClicked
+    val OnEditAlarmExploreItemClicked: OnEditAlarmExploreItemClicked
 )
 
 data class EatSearchContentUpdates(
     val onPeopleChanged: (Int) -> Unit,
     val onDateSelectionClicked: () -> Unit,
-    val onExploreItemClicked: OnExploreItemClicked
+//    val onExploreItemClicked: OnExploreItemClicked
+    val OnEditAlarmExploreItemClicked: OnEditAlarmExploreItemClicked
 )

@@ -39,18 +39,19 @@ val craneColors = lightColors(
     primaryVariant = crane_purple_700
 )
 
-//val BottomSheetShape = RoundedCornerShape(
-//    topStart = 20.dp,
-//    topEnd = 20.dp,
-//    bottomStart = 0.dp,
-//    bottomEnd = 0.dp
-//)
+val BottomSheetShape = RoundedCornerShape(
+    topStart = 20.dp,
+    topEnd = 20.dp,
+    bottomStart = 0.dp,
+    bottomEnd = 0.dp
+)
 
 @Composable
 fun CraneTheme(content: @Composable () -> Unit) {
 //    MaterialTheme(colors = craneColors, typography = craneTypography) {
-//        content()
-//    }
+    MaterialTheme(colors = craneColors) {
+        content()
+    }
     MaterialTheme(colors = craneColors) {
         content()
     }

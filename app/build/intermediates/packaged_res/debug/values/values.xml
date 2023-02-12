@@ -8,5 +8,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">Alarm</string>
+    <string name="colon">:</string>
+    <string name="hour">Hour</string>
+    <string name="minute">Minute</string>
+    <string name="set">Set</string>
+    <string name="set_alarm">Set Alarm</string>
+    <string name="set_time">Set Time</string>
     <style name="Theme.Alarm" parent="android:Theme.Material.Light.NoActionBar"/>
 </resources>

@@ -60,8 +60,11 @@ class MainActivity : ComponentActivity() {
                         val mainViewModel = hiltViewModel<MainViewModel>()
                         MainScreen(
                             widthSize = widthSizeClass,
-                            onExploreItemClicked = {
-//                                launchDetailsActivity(context = this@MainActivity, item = it)
+//                            onExploreItemClicked = {
+////                                launchDetailsActivity(context = this@MainActivity, item = it)
+//                            },
+                            OnEditAlarmExploreItemClicked = {
+                                // code
                             },
                             onDateSelectionClicked = {
                                 navController.navigate(Routes.Calendar.route)
@@ -79,7 +82,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreen(
     widthSize: WindowWidthSizeClass,
-    onExploreItemClicked: OnExploreItemClicked,
+//    onExploreItemClicked: OnExploreItemClicked,
+    OnEditAlarmExploreItemClicked: OnEditAlarmExploreItemClicked,
     onDateSelectionClicked: () -> Unit,
     mainViewModel: MainViewModel
 ){
@@ -120,7 +124,8 @@ fun MainScreen(
                 modifier = Modifier.alpha(contentAlpha),
                 topPadding = contentTopPadding,
                 widthSize = widthSize,
-                onExploreItemClicked = onExploreItemClicked,
+//                onExploreItemClicked = onExploreItemClicked,
+                OnEditAlarmExploreItemClicked = OnEditAlarmExploreItemClicked,
                 onDateSelectionClicked = onDateSelectionClicked,
                 viewModel = mainViewModel
             )
@@ -138,7 +143,8 @@ private fun MainContent(
     modifier: Modifier = Modifier,
     topPadding: Dp = 0.dp,
     widthSize: WindowWidthSizeClass,
-    onExploreItemClicked: OnExploreItemClicked,
+//    onExploreItemClicked: OnExploreItemClicked,
+    OnEditAlarmExploreItemClicked: OnEditAlarmExploreItemClicked,
     onDateSelectionClicked: () -> Unit,
     viewModel: MainViewModel
 ) {
@@ -148,7 +154,8 @@ private fun MainContent(
         CraneHome(
             widthSize = widthSize,
             modifier = modifier,
-            onExploreItemClicked = onExploreItemClicked,
+//            onExploreItemClicked = onExploreItemClicked,
+            OnEditAlarmExploreItemClicked = OnEditAlarmExploreItemClicked,
             onDateSelectionClicked = onDateSelectionClicked,
             viewModel = viewModel
         )

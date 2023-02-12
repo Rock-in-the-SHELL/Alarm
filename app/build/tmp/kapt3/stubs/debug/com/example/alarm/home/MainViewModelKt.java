@@ -5,6 +5,7 @@ import com.example.alarm.di.DefaultDispatcher;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+import com.example.alarm.data.EditAlarmModel;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 import javax.inject.Inject;
 import kotlinx.coroutines.CoroutineDispatcher;

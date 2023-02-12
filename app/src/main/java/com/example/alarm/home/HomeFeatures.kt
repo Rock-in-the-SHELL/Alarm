@@ -21,6 +21,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyGridScope
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.material.Text
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 //import androidx.compose.samples.crane.base.SimpleUserInput
@@ -44,25 +45,30 @@ fun FlySearchContent(
     CraneSearch(
         columns,
         content = {
-            item {
+//            item {
+//                Text(text = "test01")
 //                PeopleUserInput(
 //                    titleSuffix = ", Economy",
 //                    onPeopleChanged = searchUpdates.onPeopleChanged
 //                )
-            }
-            item {
+//            }
+//            item {
 //                FromDestination()
-            }
-            item {
+//                Text(text = "test11")
+//            }
+//            item {
 //                ToDestinationUserInput(
 //                    onToDestinationChanged = searchUpdates.onToDestinationChanged
 //                )
-            }
-            item {
+//            }
+//            item {
 //                DatesUserInput(
 //                    datesSelected,
 //                    onDateSelectionClicked = searchUpdates.onDateSelectionClicked
 //                )
+//            }
+            items(10) {
+                index -> Text(text = "Item: $index")
             }
         }
     )

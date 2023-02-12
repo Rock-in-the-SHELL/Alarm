@@ -13,6 +13,12 @@ drawable ic_launcher_foreground
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name
+string colon
+string hour
+string minute
+string set
+string set_alarm
+string set_time
 style Theme.Alarm
 xml backup_rules
 xml data_extraction_rules

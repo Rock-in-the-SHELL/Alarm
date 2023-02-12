@@ -1,139 +1,155 @@
 1<?xml version="1.0" encoding="utf-8"?>
-2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.example.alarm"
-4    android:versionCode="1"
-5    android:versionName="1.0" >
-6
-7    <uses-sdk
-8        android:minSdkVersion="24"
-8-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml
-9        android:targetSdkVersion="32" />
-9-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml
-10
-11    <uses-permission android:name="android.permission.INTERNET" />
-11-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:6:5-67
-11-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:6:22-64
-12
-13    <application
-13-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:8:5-34:19
-14        android:name="com.example.alarm.AlarmApplication"
-14-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:9:9-41
-15        android:allowBackup="true"
-15-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:10:9-35
-16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-16-->[androidx.core:core:1.8.0] C:\Users\rocki\.gradle\caches\transforms-3\896d59d9c0e55b753dfdd24abd27b2f9\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
-17        android:dataExtractionRules="@xml/data_extraction_rules"
-17-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:11:9-65
-18        android:debuggable="true"
-19        android:extractNativeLibs="false"
-20        android:fullBackupContent="@xml/backup_rules"
-20-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:12:9-54
-21        android:icon="@mipmap/ic_launcher"
-21-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:13:9-43
-22        android:label="@string/app_name"
-22-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:14:9-41
-23        android:roundIcon="@mipmap/ic_launcher_round"
-23-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:15:9-54
-24        android:supportsRtl="true"
-24-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:16:9-35
-25        android:testOnly="true"
-26        android:theme="@style/Theme.Alarm" >
-26-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:17:9-43
-27        <activity
-27-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:19:9-33:20
-28            android:name="com.example.alarm.home.MainActivity"
-28-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:20:13-46
-29            android:exported="true"
-29-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:21:13-36
-30            android:label="@string/app_name"
-30-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:22:13-45
-31            android:theme="@style/Theme.Alarm" >
-31-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:23:13-47
-32            <intent-filter>
-32-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:24:13-28:29
-33                <action android:name="android.intent.action.MAIN" />
-33-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:25:17-69
-33-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:25:25-66
-34
-35                <category android:name="android.intent.category.LAUNCHER" />
-35-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:27:17-77
-35-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:27:27-74
-36            </intent-filter>
-37
-38            <meta-data
-38-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:30:13-32:36
-39                android:name="android.app.lib_name"
-39-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:31:17-52
-40                android:value="" />
-40-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:32:17-33
-41        </activity>
-42        <activity
-42-->[androidx.compose.ui:ui-tooling:1.1.1] C:\Users\rocki\.gradle\caches\transforms-3\86ba9afb7f1dba084ba6be5c43a5a548\transformed\ui-tooling-1.1.1\AndroidManifest.xml:25:9-27:39
-43            android:name="androidx.compose.ui.tooling.PreviewActivity"
-43-->[androidx.compose.ui:ui-tooling:1.1.1] C:\Users\rocki\.gradle\caches\transforms-3\86ba9afb7f1dba084ba6be5c43a5a548\transformed\ui-tooling-1.1.1\AndroidManifest.xml:26:13-71
-44            android:exported="true" />
-44-->[androidx.compose.ui:ui-tooling:1.1.1] C:\Users\rocki\.gradle\caches\transforms-3\86ba9afb7f1dba084ba6be5c43a5a548\transformed\ui-tooling-1.1.1\AndroidManifest.xml:27:13-36
-45        <activity
-45-->[androidx.compose.ui:ui-test-manifest:1.1.1] C:\Users\rocki\.gradle\caches\transforms-3\524ad328fd76e7771cc27894aa3e6b0b\transformed\ui-test-manifest-1.1.1\AndroidManifest.xml:25:9-27:39
-46            android:name="androidx.activity.ComponentActivity"
-46-->[androidx.compose.ui:ui-test-manifest:1.1.1] C:\Users\rocki\.gradle\caches\transforms-3\524ad328fd76e7771cc27894aa3e6b0b\transformed\ui-test-manifest-1.1.1\AndroidManifest.xml:26:13-63
-47            android:exported="true" />
-47-->[androidx.compose.ui:ui-test-manifest:1.1.1] C:\Users\rocki\.gradle\caches\transforms-3\524ad328fd76e7771cc27894aa3e6b0b\transformed\ui-test-manifest-1.1.1\AndroidManifest.xml:27:13-36
-48
-49        <uses-library
-49-->[androidx.window:window:1.0.0] C:\Users\rocki\.gradle\caches\transforms-3\b901d12c58a5eadfa7ee8914ab99ad81\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
-50            android:name="androidx.window.extensions"
-50-->[androidx.window:window:1.0.0] C:\Users\rocki\.gradle\caches\transforms-3\b901d12c58a5eadfa7ee8914ab99ad81\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
-51            android:required="false" />
-51-->[androidx.window:window:1.0.0] C:\Users\rocki\.gradle\caches\transforms-3\b901d12c58a5eadfa7ee8914ab99ad81\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
-52        <uses-library
-52-->[androidx.window:window:1.0.0] C:\Users\rocki\.gradle\caches\transforms-3\b901d12c58a5eadfa7ee8914ab99ad81\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
-53            android:name="androidx.window.sidecar"
-53-->[androidx.window:window:1.0.0] C:\Users\rocki\.gradle\caches\transforms-3\b901d12c58a5eadfa7ee8914ab99ad81\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
-54            android:required="false" />
-54-->[androidx.window:window:1.0.0] C:\Users\rocki\.gradle\caches\transforms-3\b901d12c58a5eadfa7ee8914ab99ad81\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
-55
-56        <provider
-56-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:25:9-33:20
-57            android:name="androidx.startup.InitializationProvider"
-57-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:26:13-67
-58            android:authorities="com.example.alarm.androidx-startup"
-58-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:27:13-68
-59            android:exported="false" >
-59-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:28:13-37
-60            <meta-data
-60-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:30:13-32:52
-61                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-61-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:31:17-85
-62                android:value="androidx.startup" />
-62-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:32:17-49
-63        </provider>
+2<!--
+3  ~   Copyright 2019 The Android Open Source Project
+4  ~
+5  ~   Licensed under the Apache License, Version 2.0 (the "License");
+6  ~   you may not use this file except in compliance with the License.
+7  ~   You may obtain a copy of the License at
+8  ~
+9  ~        http://www.apache.org/licenses/LICENSE-2.0
+10  ~
+11  ~   Unless required by applicable law or agreed to in writing, software
+12  ~   distributed under the License is distributed on an "AS IS" BASIS,
+13  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+14  ~   See the License for the specific language governing permissions and
+15  ~   limitations under the License.
+16  ~
+17-->
+18<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+19    package="com.example.alarm"
+20    android:versionCode="1"
+21    android:versionName="1.0" >
+22
+23    <uses-sdk
+24        android:minSdkVersion="24"
+24-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml
+25        android:targetSdkVersion="32" />
+25-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml
+26
+27    <uses-permission android:name="android.permission.INTERNET" />
+27-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:22:5-67
+27-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:22:22-64
+28
+29    <application
+29-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:24:5-50:19
+30        android:name="com.example.alarm.AlarmApplication"
+30-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:25:9-41
+31        android:allowBackup="true"
+31-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:26:9-35
+32        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+32-->[androidx.core:core:1.8.0] C:\Users\rocki\.gradle\caches\transforms-3\896d59d9c0e55b753dfdd24abd27b2f9\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+33        android:dataExtractionRules="@xml/data_extraction_rules"
+33-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:27:9-65
+34        android:debuggable="true"
+35        android:extractNativeLibs="false"
+36        android:fullBackupContent="@xml/backup_rules"
+36-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:28:9-54
+37        android:icon="@mipmap/ic_launcher"
+37-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:29:9-43
+38        android:label="@string/app_name"
+38-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:30:9-41
+39        android:roundIcon="@mipmap/ic_launcher_round"
+39-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:31:9-54
+40        android:supportsRtl="true"
+40-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:32:9-35
+41        android:testOnly="true"
+42        android:theme="@style/Theme.Alarm" >
+42-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:33:9-43
+43        <activity
+43-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:35:9-49:20
+44            android:name="com.example.alarm.home.MainActivity"
+44-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:36:13-46
+45            android:exported="true"
+45-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:37:13-36
+46            android:label="@string/app_name"
+46-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:38:13-45
+47            android:theme="@style/Theme.Alarm" >
+47-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:39:13-47
+48            <intent-filter>
+48-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:40:13-44:29
+49                <action android:name="android.intent.action.MAIN" />
+49-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:41:17-69
+49-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:41:25-66
+50
+51                <category android:name="android.intent.category.LAUNCHER" />
+51-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:43:17-77
+51-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:43:27-74
+52            </intent-filter>
+53
+54            <meta-data
+54-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:46:13-48:36
+55                android:name="android.app.lib_name"
+55-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:47:17-52
+56                android:value="" />
+56-->C:\Users\rocki\workspace\Alarm\app\src\main\AndroidManifest.xml:48:17-33
+57        </activity>
+58        <activity
+58-->[androidx.compose.ui:ui-tooling:1.1.1] C:\Users\rocki\.gradle\caches\transforms-3\86ba9afb7f1dba084ba6be5c43a5a548\transformed\ui-tooling-1.1.1\AndroidManifest.xml:25:9-27:39
+59            android:name="androidx.compose.ui.tooling.PreviewActivity"
+59-->[androidx.compose.ui:ui-tooling:1.1.1] C:\Users\rocki\.gradle\caches\transforms-3\86ba9afb7f1dba084ba6be5c43a5a548\transformed\ui-tooling-1.1.1\AndroidManifest.xml:26:13-71
+60            android:exported="true" />
+60-->[androidx.compose.ui:ui-tooling:1.1.1] C:\Users\rocki\.gradle\caches\transforms-3\86ba9afb7f1dba084ba6be5c43a5a548\transformed\ui-tooling-1.1.1\AndroidManifest.xml:27:13-36
+61        <activity
+61-->[androidx.compose.ui:ui-test-manifest:1.1.1] C:\Users\rocki\.gradle\caches\transforms-3\524ad328fd76e7771cc27894aa3e6b0b\transformed\ui-test-manifest-1.1.1\AndroidManifest.xml:25:9-27:39
+62            android:name="androidx.activity.ComponentActivity"
+62-->[androidx.compose.ui:ui-test-manifest:1.1.1] C:\Users\rocki\.gradle\caches\transforms-3\524ad328fd76e7771cc27894aa3e6b0b\transformed\ui-test-manifest-1.1.1\AndroidManifest.xml:26:13-63
+63            android:exported="true" />
+63-->[androidx.compose.ui:ui-test-manifest:1.1.1] C:\Users\rocki\.gradle\caches\transforms-3\524ad328fd76e7771cc27894aa3e6b0b\transformed\ui-test-manifest-1.1.1\AndroidManifest.xml:27:13-36
 64
-65        <receiver
-65-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:35:9-47:20
-66            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-66-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:36:13-76
-67            android:directBootAware="false"
-67-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:37:13-44
-68            android:enabled="true"
-68-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:38:13-35
-69            android:exported="true"
-69-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:39:13-36
-70            android:permission="android.permission.DUMP" >
-70-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:40:13-57
-71            <intent-filter>
-71-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:41:13-43:29
-72                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-72-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:42:17-91
-72-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:42:25-88
-73            </intent-filter>
-74            <intent-filter>
-74-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:44:13-46:29
-75                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-75-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:45:17-85
-75-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:45:25-82
-76            </intent-filter>
-77        </receiver>
-78    </application>
-79
-80</manifest>
+65        <uses-library
+65-->[androidx.window:window:1.0.0] C:\Users\rocki\.gradle\caches\transforms-3\b901d12c58a5eadfa7ee8914ab99ad81\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+66            android:name="androidx.window.extensions"
+66-->[androidx.window:window:1.0.0] C:\Users\rocki\.gradle\caches\transforms-3\b901d12c58a5eadfa7ee8914ab99ad81\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+67            android:required="false" />
+67-->[androidx.window:window:1.0.0] C:\Users\rocki\.gradle\caches\transforms-3\b901d12c58a5eadfa7ee8914ab99ad81\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+68        <uses-library
+68-->[androidx.window:window:1.0.0] C:\Users\rocki\.gradle\caches\transforms-3\b901d12c58a5eadfa7ee8914ab99ad81\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+69            android:name="androidx.window.sidecar"
+69-->[androidx.window:window:1.0.0] C:\Users\rocki\.gradle\caches\transforms-3\b901d12c58a5eadfa7ee8914ab99ad81\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+70            android:required="false" />
+70-->[androidx.window:window:1.0.0] C:\Users\rocki\.gradle\caches\transforms-3\b901d12c58a5eadfa7ee8914ab99ad81\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+71
+72        <provider
+72-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:25:9-33:20
+73            android:name="androidx.startup.InitializationProvider"
+73-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:26:13-67
+74            android:authorities="com.example.alarm.androidx-startup"
+74-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:27:13-68
+75            android:exported="false" >
+75-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:28:13-37
+76            <meta-data
+76-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:30:13-32:52
+77                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+77-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:31:17-85
+78                android:value="androidx.startup" />
+78-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:32:17-49
+79        </provider>
+80
+81        <receiver
+81-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:35:9-47:20
+82            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+82-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:36:13-76
+83            android:directBootAware="false"
+83-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:37:13-44
+84            android:enabled="true"
+84-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:38:13-35
+85            android:exported="true"
+85-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:39:13-36
+86            android:permission="android.permission.DUMP" >
+86-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:40:13-57
+87            <intent-filter>
+87-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:41:13-43:29
+88                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+88-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:42:17-91
+88-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:42:25-88
+89            </intent-filter>
+90            <intent-filter>
+90-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:44:13-46:29
+91                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+91-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:45:17-85
+91-->[androidx.profileinstaller:profileinstaller:1.2.0] C:\Users\rocki\.gradle\caches\transforms-3\576cda5649ac3e00abb833266949cba2\transformed\profileinstaller-1.2.0\AndroidManifest.xml:45:25-82
+92            </intent-filter>
+93        </receiver>
+94    </application>
+95
+96</manifest>

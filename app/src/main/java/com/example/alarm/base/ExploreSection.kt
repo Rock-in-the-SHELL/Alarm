@@ -47,7 +47,7 @@ import androidx.compose.runtime.Composable
 import com.example.alarm.R
 import com.example.alarm.data.ExploreModel
 import com.example.alarm.home.OnExploreItemClicked
-//import androidx.compose.samples.crane.ui.crane_caption
+import com.example.alarm.ui.theme.crane_caption
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -71,7 +71,7 @@ fun ExploreSection(
         Column(modifier = Modifier.padding(start = 24.dp, top = 20.dp, end = 24.dp)) {
             Text(
                 text = title,
-//                style = MaterialTheme.typography.caption.copy(color = crane_caption)
+                style = MaterialTheme.typography.caption.copy(color = crane_caption)
             )
             Spacer(Modifier.height(8.dp))
 
@@ -145,7 +145,7 @@ private fun ExploreItemColumn(
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 text = item.description,
-//                style = MaterialTheme.typography.caption.copy(color = crane_caption)
+                style = MaterialTheme.typography.caption.copy(color = crane_caption)
             )
         }
     }
@@ -174,7 +174,7 @@ private fun ExploreItemRow(
             Spacer(Modifier.height(4.dp))
             Text(
                 text = item.description,
-//                style = MaterialTheme.typography.caption.copy(color = crane_caption)
+                style = MaterialTheme.typography.caption.copy(color = crane_caption)
             )
         }
     }

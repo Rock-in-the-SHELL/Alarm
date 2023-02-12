@@ -34,3 +34,8 @@ data class ExploreModel(
     val description: String,
     val imageUrl: String
 )
+
+data class EditAlarmModel(
+    val hour: String,
+    val minute: String
+)
