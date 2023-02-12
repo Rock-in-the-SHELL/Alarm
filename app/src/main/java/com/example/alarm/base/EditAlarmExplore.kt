@@ -16,6 +16,8 @@
 
 package com.example.alarm.base
 
+import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -39,13 +41,13 @@ import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.*
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import com.example.alarm.R
 import com.example.alarm.data.ExploreModel
+import com.example.alarm.data.EditAlarmModel
 import com.example.alarm.home.OnExploreItemClicked
 import com.example.alarm.ui.theme.crane_caption
 import androidx.compose.ui.Alignment
@@ -54,18 +56,24 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImagePainter.State.Loading
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
+import com.example.alarm.home.OnEditAlarmExploreItemClicked
 
 @Composable
-fun ExploreSection(
+fun EditAlarmExploreSection(
     widthSize: WindowWidthSizeClass,
     modifier: Modifier = Modifier,
     title: String,
-    exploreList: List<ExploreModel>,
-    onItemClicked: OnExploreItemClicked
+//    exploreList: List<EditAlarmModel>,
+    onItemClicked: OnEditAlarmExploreItemClicked
 ) {
     Surface(modifier = modifier.fillMaxSize(), color = Color.White) {
         Column(modifier = Modifier.padding(start = 24.dp, top = 20.dp, end = 24.dp)) {
@@ -74,147 +82,171 @@ fun ExploreSection(
                 style = MaterialTheme.typography.caption.copy(color = crane_caption)
             )
             Spacer(Modifier.height(8.dp))
+//            LazyVerticalGrid(
+//                columns = GridCells.Adaptive(200.dp),
+//                modifier = Modifier.fillMaxWidth(),
+//                horizontalArrangement = Arrangement.spacedBy(8.dp),
+//                content = {
+//                    item { Text(text = stringResource(R.string.set_time)) }
+//                    item{
+//                        var hour by remember { mutableStateOf("") }
+//                        var minute by remember { mutableStateOf("") }
+//                        Row (
+//                            horizontalArrangement = Arrangement.Center
+//                                ) {
+////                            var hour by remember { mutableStateOf("") }
+//                            OutlinedTextField(
+//                                value = hour,
+//                                onValueChange = { hour = it },
+//                                modifier = Modifier
+//                                    .weight(weight = 1f, fill = false)
+//                                    .height(70.dp)
+//                                    .width(100.dp),
+//                                label = { Text(text=stringResource(R.string.hour)) },
+//                                textStyle = MaterialTheme.typography.body1.copy(
+//                                    textAlign = TextAlign.Center
+//                                ),
+//                                keyboardOptions = KeyboardOptions(
+//                                    keyboardType = KeyboardType.Number
+//                                ),
+//                                colors = TextFieldDefaults.outlinedTextFieldColors(
+//                                    focusedBorderColor = Color.Black,
+//                                    unfocusedBorderColor = Color.Gray
+//                                ),
+//                                singleLine = true
+//                            )
+//
+//                            Text(
+//                                modifier = Modifier
+//                                    .width(35.dp)
+//                                    .align(Alignment.CenterVertically),
+//                                fontSize = 30.sp,
+//                                text = stringResource(R.string.colon),
+//                                textAlign = TextAlign.Center
+//                            )
+//
+////                            var minute by remember { mutableStateOf("") }
+//                            OutlinedTextField(
+//                                value = minute,
+//                                onValueChange = { minute = it},
+//                                modifier = Modifier
+//                                    .weight(weight = 1f, fill = false)
+//                                    .height(70.dp)
+//                                    .width(100.dp),
+//                                label = { Text(text=stringResource(R.string.minute)) },
+//                                textStyle = MaterialTheme.typography.body1.copy(
+//                                    textAlign = TextAlign.Center
+//                                ),
+//                                keyboardOptions = KeyboardOptions(
+//                                    keyboardType = KeyboardType.Number
+//                                ),
+//                                colors = TextFieldDefaults.outlinedTextFieldColors(
+//                                    focusedBorderColor = Color.Black,
+//                                    unfocusedBorderColor = Color.Gray
+//                                ),
+//                                singleLine = true
+//                            )
+//                        }
+//                    }
+////                    item { Text(text = "Week") }
+//                    item {
+//                        Row (
+//                            horizontalArrangement = Arrangement.Center
+//                        ) {
+//                            Button(
+//                                onClick = { /* code */ }
+//                            ) {
+//                                Text(text = stringResource(R.string.set))
+//                            }
+//                        }
+//                    }
+//
+//                    item(span = {
+//                        // Span the whole bottom row of grid items to add space at the bottom of the grid.
+//                        GridItemSpan(maxLineSpan)
+//                    }) {
+//                        Spacer(
+//                            modifier = Modifier
+//                                .windowInsetsBottomHeight(WindowInsets.navigationBars)
+//                        )
+//                    }
+//                }
+//            )
 
-            LazyVerticalGrid(
-                columns = GridCells.Adaptive(200.dp),
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                content = {
-                    items(exploreList) { exploreItem ->
-                        when (widthSize) {
-                            WindowWidthSizeClass.Medium, WindowWidthSizeClass.Expanded -> {
-                                ExploreItemColumn(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    item = exploreItem,
-                                    onItemClicked = onItemClicked
-                                )
-                            }
-                            else -> {
-                                ExploreItemRow(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    item = exploreItem,
-                                    onItemClicked = onItemClicked
-                                )
-                            }
-                        }
+            Text(text = stringResource(R.string.set_time))
+            var hour by remember { mutableStateOf("") }
+            var minute by remember { mutableStateOf("") }
+            Row (
+                horizontalArrangement = Arrangement.Center
+            ) {
+                OutlinedTextField(
+                    value = hour,
+                    onValueChange = { hour = it },
+                    modifier = Modifier
+                        .weight(weight = 1f, fill = false)
+                        .height(70.dp)
+                        .width(100.dp),
+                    label = { Text(text=stringResource(R.string.hour)) },
+                    textStyle = MaterialTheme.typography.body1.copy(
+                        textAlign = TextAlign.Center
+                    ),
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = KeyboardType.Number
+                    ),
+                    colors = TextFieldDefaults.outlinedTextFieldColors(
+                        focusedBorderColor = Color.Black,
+                        unfocusedBorderColor = Color.Gray
+                    ),
+                    singleLine = true
+                )
+
+                Text(
+                    modifier = Modifier
+                        .width(35.dp)
+                        .align(Alignment.CenterVertically),
+                    fontSize = 30.sp,
+                    text = stringResource(R.string.colon),
+                    textAlign = TextAlign.Center
+                )
+
+                OutlinedTextField(
+                    value = minute,
+                    onValueChange = { minute = it},
+                    modifier = Modifier
+                        .weight(weight = 1f, fill = false)
+                        .height(70.dp)
+                        .width(100.dp),
+                    label = { Text(text=stringResource(R.string.minute)) },
+                    textStyle = MaterialTheme.typography.body1.copy(
+                        textAlign = TextAlign.Center
+                    ),
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = KeyboardType.Number
+                    ),
+                    colors = TextFieldDefaults.outlinedTextFieldColors(
+                        focusedBorderColor = Color.Black,
+                        unfocusedBorderColor = Color.Gray
+                    ),
+                    singleLine = true
+                )
+            }
+//                    item { Text(text = "Week") }
+            Row (
+                horizontalArrangement = Arrangement.Center
+            ) {
+                Button(
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = {
+                        Log.d("hour:minute", "$hour:$minute")
                     }
-                    item(span = {
-                        // Span the whole bottom row of grid items to add space at the bottom of the grid.
-                        GridItemSpan(maxLineSpan)
-                    }) {
-                        Spacer(
-                            modifier = Modifier
-                                .windowInsetsBottomHeight(WindowInsets.navigationBars)
-                        )
-                    }
+                ) {
+                    Text(text = stringResource(R.string.set))
                 }
-            )
+            }
         }
     }
 }
-
-/**
- * Composable with large image card and text underneath.
- */
-@Composable
-private fun ExploreItemColumn(
-    modifier: Modifier = Modifier,
-    item: ExploreModel,
-    onItemClicked: OnExploreItemClicked
-) {
-    Column(
-        modifier = modifier
-            .clickable { onItemClicked(item) }
-            .padding(top = 12.dp, bottom = 12.dp)
-    ) {
-        ExploreImageContainer(modifier = Modifier.fillMaxWidth()) {
-            ExploreImage(item)
-        }
-        Spacer(Modifier.height(8.dp))
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .wrapContentHeight()
-        ) {
-            Text(
-                modifier = Modifier.fillMaxWidth(),
-                text = item.city.nameToDisplay,
-                style = MaterialTheme.typography.subtitle1
-            )
-            Spacer(Modifier.height(4.dp))
-            Text(
-                modifier = Modifier.fillMaxWidth(),
-                text = item.description,
-                style = MaterialTheme.typography.caption.copy(color = crane_caption)
-            )
-        }
-    }
-}
-
-@Composable
-private fun ExploreItemRow(
-    modifier: Modifier = Modifier,
-    item: ExploreModel,
-    onItemClicked: OnExploreItemClicked
-) {
-    Row(
-        modifier = modifier
-            .clickable { onItemClicked(item) }
-            .padding(top = 12.dp, bottom = 12.dp)
-    ) {
-        ExploreImageContainer(modifier = Modifier.size(64.dp)) {
-            ExploreImage(item)
-        }
-        Spacer(Modifier.width(24.dp))
-        Column(modifier = Modifier.fillMaxWidth()) {
-            Text(
-                text = item.city.nameToDisplay,
-                style = MaterialTheme.typography.h6
-            )
-            Spacer(Modifier.height(4.dp))
-            Text(
-                text = item.description,
-                style = MaterialTheme.typography.caption.copy(color = crane_caption)
-            )
-        }
-    }
-}
-
-@Composable
-private fun ExploreImage(item: ExploreModel) {
-    Box {
-        val painter = rememberAsyncImagePainter(
-            model = ImageRequest.Builder(LocalContext.current)
-                .data(item.imageUrl)
-                .crossfade(true)
-                .build()
-        )
-
-        if (painter.state is Loading) {
-            Image(
-                painter = painterResource(id = R.drawable.ic_crane_logo),
-                contentDescription = null,
-                modifier = Modifier
-                    .size(36.dp)
-                    .align(Alignment.Center),
-            )
-        }
-
-        Image(
-            painter = painter,
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            modifier = Modifier.fillMaxSize(),
-        )
-    }
-}
-
-@Composable
-private fun ExploreImageContainer(
-    modifier: Modifier = Modifier,
-    content: @Composable () -> Unit
-) {
-    Surface(modifier.aspectRatio(1f), RoundedCornerShape(4.dp)) {
-        content()
-    }
-}
+data class AlarmModel(
+    var hour: String,
+    var minute: String
+)
