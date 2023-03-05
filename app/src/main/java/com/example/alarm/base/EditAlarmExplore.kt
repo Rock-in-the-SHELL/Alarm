@@ -16,6 +16,10 @@
 
 package com.example.alarm.base
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.Image
@@ -62,10 +66,15 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
 import coil.compose.AsyncImagePainter.State.Loading
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
+import com.example.alarm.data.AlarmData
 import com.example.alarm.home.OnEditAlarmExploreItemClicked
+import com.example.alarm.model.AlarmReceiver
+import java.util.*
 
 @Composable
 fun EditAlarmExploreSection(
@@ -75,6 +84,9 @@ fun EditAlarmExploreSection(
 //    exploreList: List<EditAlarmModel>,
     onItemClicked: OnEditAlarmExploreItemClicked
 ) {
+    var hour by remember { mutableStateOf("") }
+    var minute by remember { mutableStateOf("") }
+    val context: Context = LocalContext.current
     Surface(modifier = modifier.fillMaxSize(), color = Color.White) {
         Column(modifier = Modifier.padding(start = 24.dp, top = 20.dp, end = 24.dp)) {
             Text(
@@ -82,100 +94,7 @@ fun EditAlarmExploreSection(
                 style = MaterialTheme.typography.caption.copy(color = crane_caption)
             )
             Spacer(Modifier.height(8.dp))
-//            LazyVerticalGrid(
-//                columns = GridCells.Adaptive(200.dp),
-//                modifier = Modifier.fillMaxWidth(),
-//                horizontalArrangement = Arrangement.spacedBy(8.dp),
-//                content = {
-//                    item { Text(text = stringResource(R.string.set_time)) }
-//                    item{
-//                        var hour by remember { mutableStateOf("") }
-//                        var minute by remember { mutableStateOf("") }
-//                        Row (
-//                            horizontalArrangement = Arrangement.Center
-//                                ) {
-////                            var hour by remember { mutableStateOf("") }
-//                            OutlinedTextField(
-//                                value = hour,
-//                                onValueChange = { hour = it },
-//                                modifier = Modifier
-//                                    .weight(weight = 1f, fill = false)
-//                                    .height(70.dp)
-//                                    .width(100.dp),
-//                                label = { Text(text=stringResource(R.string.hour)) },
-//                                textStyle = MaterialTheme.typography.body1.copy(
-//                                    textAlign = TextAlign.Center
-//                                ),
-//                                keyboardOptions = KeyboardOptions(
-//                                    keyboardType = KeyboardType.Number
-//                                ),
-//                                colors = TextFieldDefaults.outlinedTextFieldColors(
-//                                    focusedBorderColor = Color.Black,
-//                                    unfocusedBorderColor = Color.Gray
-//                                ),
-//                                singleLine = true
-//                            )
-//
-//                            Text(
-//                                modifier = Modifier
-//                                    .width(35.dp)
-//                                    .align(Alignment.CenterVertically),
-//                                fontSize = 30.sp,
-//                                text = stringResource(R.string.colon),
-//                                textAlign = TextAlign.Center
-//                            )
-//
-////                            var minute by remember { mutableStateOf("") }
-//                            OutlinedTextField(
-//                                value = minute,
-//                                onValueChange = { minute = it},
-//                                modifier = Modifier
-//                                    .weight(weight = 1f, fill = false)
-//                                    .height(70.dp)
-//                                    .width(100.dp),
-//                                label = { Text(text=stringResource(R.string.minute)) },
-//                                textStyle = MaterialTheme.typography.body1.copy(
-//                                    textAlign = TextAlign.Center
-//                                ),
-//                                keyboardOptions = KeyboardOptions(
-//                                    keyboardType = KeyboardType.Number
-//                                ),
-//                                colors = TextFieldDefaults.outlinedTextFieldColors(
-//                                    focusedBorderColor = Color.Black,
-//                                    unfocusedBorderColor = Color.Gray
-//                                ),
-//                                singleLine = true
-//                            )
-//                        }
-//                    }
-////                    item { Text(text = "Week") }
-//                    item {
-//                        Row (
-//                            horizontalArrangement = Arrangement.Center
-//                        ) {
-//                            Button(
-//                                onClick = { /* code */ }
-//                            ) {
-//                                Text(text = stringResource(R.string.set))
-//                            }
-//                        }
-//                    }
-//
-//                    item(span = {
-//                        // Span the whole bottom row of grid items to add space at the bottom of the grid.
-//                        GridItemSpan(maxLineSpan)
-//                    }) {
-//                        Spacer(
-//                            modifier = Modifier
-//                                .windowInsetsBottomHeight(WindowInsets.navigationBars)
-//                        )
-//                    }
-//                }
-//            )
-
             Text(text = stringResource(R.string.set_time))
-            var hour by remember { mutableStateOf("") }
-            var minute by remember { mutableStateOf("") }
             Row (
                 horizontalArrangement = Arrangement.Center
             ) {
@@ -238,6 +157,16 @@ fun EditAlarmExploreSection(
                     modifier = Modifier.fillMaxWidth(),
                     onClick = {
                         Log.d("hour:minute", "$hour:$minute")
+                        val calendar: Calendar = Calendar.getInstance().apply {
+                            timeInMillis = System.currentTimeMillis()
+                            set(Calendar.HOUR_OF_DAY, Integer.parseInt(hour))
+                            set(Calendar.MINUTE, Integer.parseInt(minute))
+                            set(Calendar.SECOND,0)
+                        }
+                        val alarmIntent = Intent(context, AlarmReceiver::class.java)
+                        val pendingIntent: PendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, PendingIntent.FLAG_IMMUTABLE)
+                        val alarmManager: AlarmManager = ContextCompat.getSystemService(context,AlarmManager::class.java) as AlarmManager
+                        alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis,pendingIntent)
                     }
                 ) {
                     Text(text = stringResource(R.string.set))
@@ -246,7 +175,3 @@ fun EditAlarmExploreSection(
         }
     }
 }
-data class AlarmModel(
-    var hour: String,
-    var minute: String
-)

@@ -40,6 +40,10 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.Alarm" >
+        <receiver
+            android:name="com.example.alarm.model.AlarmReceiver"
+            android:exported="false" />
+
         <activity
             android:name="com.example.alarm.home.MainActivity"
             android:exported="true"
