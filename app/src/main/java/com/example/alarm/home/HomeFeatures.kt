@@ -29,7 +29,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun FlySearchContent(
+fun AlarmSettingContent(
     widthSize: WindowWidthSizeClass,
 //    datesSelected: String,
     searchUpdates: FlySearchContentUpdates
@@ -45,28 +45,6 @@ fun FlySearchContent(
     CraneSearch(
         columns,
         content = {
-//            item {
-//                Text(text = "test01")
-//                PeopleUserInput(
-//                    titleSuffix = ", Economy",
-//                    onPeopleChanged = searchUpdates.onPeopleChanged
-//                )
-//            }
-//            item {
-//                FromDestination()
-//                Text(text = "test11")
-//            }
-//            item {
-//                ToDestinationUserInput(
-//                    onToDestinationChanged = searchUpdates.onToDestinationChanged
-//                )
-//            }
-//            item {
-//                DatesUserInput(
-//                    datesSelected,
-//                    onDateSelectionClicked = searchUpdates.onDateSelectionClicked
-//                )
-//            }
             items(10) {
                 index -> Text(text = "Item: $index")
             }
@@ -75,7 +53,7 @@ fun FlySearchContent(
 }
 
 @Composable
-fun SleepSearchContent(
+fun AlarmScreenContent(
     widthSize: WindowWidthSizeClass,
 //    datesSelected: String,
     sleepUpdates: SleepSearchContentUpdates
@@ -106,43 +84,6 @@ fun SleepSearchContent(
             }
         }
     )
-}
-
-@Composable
-fun EatSearchContent(
-    widthSize: WindowWidthSizeClass,
-//    datesSelected: String,
-    eatUpdates: EatSearchContentUpdates
-) {
-    val columns = when (widthSize) {
-        WindowWidthSizeClass.Compact -> 1
-        WindowWidthSizeClass.Medium -> 2
-        WindowWidthSizeClass.Expanded -> 4
-        else -> 1
-    }
-    CraneSearch(columns) {
-        item {
-//            PeopleUserInput(onPeopleChanged = eatUpdates.onPeopleChanged)
-        }
-        item {
-//            DatesUserInput(
-//                datesSelected,
-//                onDateSelectionClicked = eatUpdates.onDateSelectionClicked
-//            )
-        }
-        item {
-//            SimpleUserInput(
-//                caption = stringResource(R.string.input_select_time),
-//                vectorImageId = R.drawable.ic_time
-//            )
-        }
-        item {
-//            SimpleUserInput(
-//                caption = stringResource(R.string.input_select_location),
-//                vectorImageId = R.drawable.ic_restaurant
-//            )
-        }
-    }
 }
 
 @Composable

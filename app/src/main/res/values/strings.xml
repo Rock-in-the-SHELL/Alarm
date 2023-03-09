@@ -6,4 +6,15 @@
     <string name="minute">Minute</string>
     <string name="colon">:</string>
     <string name="set">Set</string>
+    <string name="stop">STOP</string>
+    <string name="what_the_date_of_the_week">今日は何曜日？</string>
+    <string name="week">曜日</string>
+    <string name="monday">月曜日</string>
+    <string name="tuesday">火曜日</string>
+    <string name="wednesday">水曜日</string>
+    <string name="thursday">木曜日</string>
+    <string name="friday">金曜日</string>
+    <string name="saturday">土曜日</string>
+    <string name="sunday">日曜日</string>
+    <string name="youbi_is_different">曜日が違います。正しい曜日を入力して下さい。</string>
 </resources>

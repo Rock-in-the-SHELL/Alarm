@@ -1,6 +1,7 @@
 R_DEF: Internal format may change without notice
 local
 color black
+color crimson
 color purple_200
 color purple_500
 color purple_700
@@ -14,11 +15,22 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name
 string colon
+string friday
 string hour
 string minute
+string monday
+string saturday
 string set
 string set_alarm
 string set_time
+string stop
+string sunday
+string thursday
+string tuesday
+string wednesday
+string week
+string what_the_date_of_the_week
+string youbi_is_different
 style Theme.Alarm
 xml backup_rules
 xml data_extraction_rules

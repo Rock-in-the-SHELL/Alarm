@@ -60,7 +60,7 @@ typealias OnExploreItemClicked = (ExploreModel) -> Unit
 typealias OnEditAlarmExploreItemClicked = (EditAlarmModel) -> Unit
 
 enum class CraneScreen {
-    Fly, Sleep, Eat
+    Set, Screen
 }
 
 @Composable
@@ -111,7 +111,7 @@ fun CraneHomeContent(
     val suggestedDestinations by viewModel.suggestedDestinations.observeAsState()
 
     val onPeopleChanged: (Int) -> Unit = { viewModel.updatePeople(it) }
-    var tabSelected by remember { mutableStateOf(CraneScreen.Fly) }
+    var tabSelected by remember { mutableStateOf(CraneScreen.Set) }
 
     BackdropScaffold(
         modifier = modifier,
@@ -154,26 +154,16 @@ fun CraneHomeContent(
                     )
                 }
             ) { targetState ->
-//                when (targetState) {
-//                    CraneScreen.Fly -> {
-//                        suggestedDestinations?.let { destinations ->
-//                            ExploreSection(
-//                                widthSize = widthSize,
-//                                title = "test",
-//                                title = stringResource(R.string.explore_set_alarm),
-//                                exploreList = destinations,
-//                                onItemClicked = onExploreItemClicked
-//                            )
-//                        }
-//                    }
-
-                    EditAlarmExploreSection(
-                        widthSize = widthSize,
+                when (targetState) {
+                    CraneScreen.Set -> {
+                        EditAlarmExploreSection(
+                            widthSize = widthSize,
 //                        exploreList = viewModel.hotels,
-                        title = stringResource(R.string.set_alarm),
-                        onItemClicked = OnEditAlarmExploreItemClicked
-                    )
-//                }
+                            title = stringResource(R.string.set_alarm),
+                            onItemClicked = OnEditAlarmExploreItemClicked
+                        )
+                    }
+                }
             }
         }
     )
@@ -235,7 +225,7 @@ private fun SearchContent(
         },
     ) { targetState ->
         when (targetState) {
-            CraneScreen.Fly -> FlySearchContent(
+            CraneScreen.Set -> AlarmSettingContent(
                 widthSize = widthSize,
 //                datesSelected = selectedDates,
                 searchUpdates = FlySearchContentUpdates(
@@ -246,20 +236,10 @@ private fun SearchContent(
                     OnEditAlarmExploreItemClicked = OnEditAlarmExploreItemClicked
                 )
             )
-            CraneScreen.Sleep -> SleepSearchContent(
+            CraneScreen.Screen -> AlarmScreenContent(
                 widthSize = widthSize,
 //                datesSelected = selectedDates,
                 sleepUpdates = SleepSearchContentUpdates(
-                    onPeopleChanged = onPeopleChanged,
-                    onDateSelectionClicked = onDateSelectionClicked,
-//                    onExploreItemClicked = onExploreItemClicked
-                    OnEditAlarmExploreItemClicked = OnEditAlarmExploreItemClicked
-                )
-            )
-            CraneScreen.Eat -> EatSearchContent(
-                widthSize = widthSize,
-//                datesSelected = selectedDates,
-                eatUpdates = EatSearchContentUpdates(
                     onPeopleChanged = onPeopleChanged,
                     onDateSelectionClicked = onDateSelectionClicked,
 //                    onExploreItemClicked = onExploreItemClicked
@@ -279,13 +259,6 @@ data class FlySearchContentUpdates(
 )
 
 data class SleepSearchContentUpdates(
-    val onPeopleChanged: (Int) -> Unit,
-    val onDateSelectionClicked: () -> Unit,
-//    val onExploreItemClicked: OnExploreItemClicked
-    val OnEditAlarmExploreItemClicked: OnEditAlarmExploreItemClicked
-)
-
-data class EatSearchContentUpdates(
     val onPeopleChanged: (Int) -> Unit,
     val onDateSelectionClicked: () -> Unit,
 //    val onExploreItemClicked: OnExploreItemClicked

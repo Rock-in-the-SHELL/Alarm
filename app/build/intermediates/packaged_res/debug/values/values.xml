@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="crimson">#DC143C</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -9,10 +10,21 @@
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">Alarm</string>
     <string name="colon">:</string>
+    <string name="friday">金曜日</string>
     <string name="hour">Hour</string>
     <string name="minute">Minute</string>
+    <string name="monday">月曜日</string>
+    <string name="saturday">土曜日</string>
     <string name="set">Set</string>
     <string name="set_alarm">Set Alarm</string>
     <string name="set_time">Set Time</string>
+    <string name="stop">STOP</string>
+    <string name="sunday">日曜日</string>
+    <string name="thursday">木曜日</string>
+    <string name="tuesday">火曜日</string>
+    <string name="wednesday">水曜日</string>
+    <string name="week">曜日</string>
+    <string name="what_the_date_of_the_week">今日は何曜日？</string>
+    <string name="youbi_is_different">曜日が違います。正しい曜日を入力して下さい。</string>
     <style name="Theme.Alarm" parent="android:Theme.Material.Light.NoActionBar"/>
 </resources>
